@@ -1,0 +1,101 @@
+city,country,latitude,longitude,hemisphere,gee_asset_id
+Athens,Greece,37.9838,23.7275,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Brasília,Brazil,-15.8267,-47.9218,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Dhaka,Bangladesh,23.8103,90.4125,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Riyadh,Saudi Arabia,24.7136,46.6753,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Warsaw,Poland,52.2297,21.0122,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Nairobi,Kenya,-1.2921,36.8219,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Hà Nội,Vietnam,21.0285,105.8542,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Tashkent,Uzbekistan,41.2995,69.2401,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Vienna,Austria,48.2082,16.3738,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Berlin,Germany,52.52,13.405,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Seoul,South Korea,37.5665,126.978,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Delhi,India,28.7041,77.1025,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Bangkok,Thailand,13.7367,100.5231,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Doha,Qatar,25.2854,51.531,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Kyiv,Ukraine,50.4501,30.5234,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Bucharest,Romania,44.4268,26.1025,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Tbilisi,Georgia,41.7151,44.8271,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Ulaanbaatar,Mongolia,47.8864,106.9057,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Dar es-Salaam,Tanzania,-6.7924,39.2083,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Maputo,Mozambique,-25.9692,32.5732,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Gaborone,Botswana,-24.6581,25.9088,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Special capital Region of Jakarta,Indonesia,-6.1754,106.8272,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+New York,United States,40.7128,-74.006,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Mumbai,India,19.076,72.8777,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Karachi Division,Pakistan,24.8607,67.0011,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Baghdad,Iraq,33.3152,44.3661,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Baku City,Azerbaijan,40.4093,49.8671,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Manila,Philippines,14.5995,120.9842,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Toronto,Canada,43.6535,-79.3839,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+San Francisco,United States,37.7749,-122.4194,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+City of Georgetown,Guyana,6.8013,-58.1551,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Bandung City,Indonesia,-6.9175,107.6191,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Surabaya,Indonesia,-7.2575,112.7521,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+City of Medan,Indonesia,3.5852,98.6722,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Denpasar,Indonesia,-8.65,115.2167,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Kathmandu Metropolitan City,Nepal,27.7172,85.324,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Lisbon,Portugal,38.7223,-9.1393,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Brussels,Belgium,50.8503,4.3517,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Adelaide,Australia,-34.9285,138.6007,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Melbourne,Australia,-37.8136,144.9631,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Sydney,Australia,-33.8688,151.2093,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Hobart,Australia,-42.8821,147.3281,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Vientiane Capital,Laos,17.9757,102.6331,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Sofia,Bulgaria,42.6977,23.3217,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Buenos Aires,Argentina,-34.6037,-58.3816,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Noumea,New Caledonia,-22.2555,166.4511,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Los Angeles,United States,34.0522,-118.2437,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Chicago,United States,41.8781,-87.6298,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Madrid,Spain,40.4168,-3.7038,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Rome,Italy,41.9028,12.4964,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Casablanca,Morocco,33.5731,-7.5898,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Budapest,Hungary,47.4979,19.0402,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Seattle,United States,47.6062,-122.3321,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Vancouver,Canada,49.2827,-123.1207,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Boston,United States,42.3601,-71.0589,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Houston,United States,29.7604,-95.3698,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Dallas,United States,32.7767,-96.797,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Atlanta,United States,33.749,-84.388,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Philadelphia,United States,39.9526,-75.1652,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Phoenix,United States,33.4484,-112.074,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Montreal,Canada,45.5017,-73.5673,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Birmingham,United Kingdom,52.4862,-1.8904,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Manchester,United Kingdom,53.4808,-2.2426,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Milan,Italy,45.4642,9.19,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Naples,Italy,40.8518,14.2681,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Zurich,Switzerland,47.3769,8.5417,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Geneva,Switzerland,46.2044,6.1432,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+La Paz,Bolivia,-16.5,-68.15,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Asuncion,Paraguay,-25.3,-57.6333,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Montevideo,Uruguay,-34.9011,-56.1645,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Fianarantsoa,Madagascar,-21.4524,47.0857,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+London,United Kingdom,51.5074,-0.1278,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Tehran,Iran,35.6892,51.389,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Cairo,Egypt,30.0444,31.2357,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Belgrade,Serbia,44.8178,20.4569,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Washington,United States,38.9072,-77.0369,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Luanda,Angola,-8.8399,13.2894,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Guadalajara,Mexico,20.6597,-103.3496,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Monterrey,Mexico,25.6866,-100.3161,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Oslo,Norway,59.9139,10.7522,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Beirut,Lebanon,33.8938,35.5018,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Santiago,Chile,-33.4489,-70.6693,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Istanbul,Turkey,41.0082,28.9784,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Tokyo,Japan,35.6762,139.6503,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Algiers,Algeria,36.7538,3.0588,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Mexico City,Mexico,19.4326,-99.1332,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Moscow,Russia,55.7558,37.6173,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Beijing,China,39.9042,116.4074,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Shanghai,China,31.2304,121.4737,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Amman,Jordan,31.9454,35.9284,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Astana,Kazakhstan,51.1694,71.4491,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Harare,Zimbabwe,-17.8252,31.0335,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Kinshasa,DR Congo,-4.4419,15.2663,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Blantyre,Malawi,-15.7861,34.9895,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+National Capital District,Papua New Guinea,-9.4167,147.1667,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Dili,Timor-Leste,-8.5538,125.5787,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Phnom Penh,Cambodia,11.5564,104.9282,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Honiara,Solomon Islands,-9.4378,159.9624,Southern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Paris,France,48.8566,2.3522,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
+Prague,Czech Republic,50.0755,14.4378,Northern,projects/ee-saghisarafi/assets/Global_UHI_City_Boundaries
