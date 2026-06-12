@@ -262,7 +262,7 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 
 ## Acknowledgments
 
-This research was supported by the **Austrian Marshall Plan Foundation**. The authors gratefully acknowledge USGS for Landsat data, Google Earth Engine for cloud computing infrastructure, and the GLAD team (Potapov et al.) for the global land cover dataset.
+This research was supported by the **Austrian Marshall Plan Foundation**. The majority of this work was conducted at the Department of Geography and Environmental Studies, University of New Mexico (USA), whose resources and research environment were instrumental to the completion of this study during the author’s tenure as a Marshall Plan Fellow. The author also acknowledges the Department of Engineering and IT at Carinthia University of Applied Sciences (Austria) for their institutional affiliation and support.
 
 ---
 
