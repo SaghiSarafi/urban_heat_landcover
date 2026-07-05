@@ -14,7 +14,7 @@
 
 ## Overview
 
-This repository contains all data, code, and supplementary materials for the study analyzing how **land cover (LC) change mediates Urban Heat Island (UHI) dynamics** across **100 major global cities** from **2000 to 2020**, using Google Earth Engine (GEE) with Landsat-derived Land Surface Temperature (LST) and the GLAD land‑cover dataset.
+This repository contains all data, code, and supplementary materials for the study analyzing how **landcover (LC) change mediates Urban Heat Island (UHI) dynamics** across **100 major global cities** from **2000 to 2020**, using Google Earth Engine (GEE) with Landsat-derived Land Surface Temperature (LST) and the GLAD land‑cover dataset.
 
 The study introduces a **hierarchical three‑level analytical framework**:
 
@@ -41,6 +41,10 @@ urban_heat_landcover/
 │ ├── city_year_lst_lc.csv ← City × year × LC class LST summary (2,244 rows)
 │ ├── pixel_transitions_thermal_2000_2020.csv ← Pixel‑level LC transition thermal responses
 │ └── city_list.csv ← 100 study cities with coordinates and metadata
+│ └── raw/
+│   ├── berkeley_earth_land_tavg_raw.txt ← Original downloaded Berkeley Earth file
+│   ├── berkeley_earth_land_tavg.csv ← Parsed annual land-only temperature (2000–2020)
+│   └── berkeley_earth_land_tavg.meta.json ← Source citation, baseline, access date
 │
 ├── GEE/
 │ ├── README_GEE.md ← GEE script documentation
@@ -49,8 +53,9 @@ urban_heat_landcover/
 │
 ├── scripts/
 │ ├── README_scripts.md ← Script descriptions and run order
+│ ├── 00_fetch_berkeley_land.py ← Downloads global land-only temperature data
 │ ├── figure_02_lst_temporal_trends.py ← Figure 2 (temporal LST trends)
-│ ├── figure_03_landcover_composition_trends.py ← Figure 3 (LC trends)
+│ ├── figure_03_lc_composition_trends.py ← Figure 3 (LC trends)
 │ ├── figure_04_lc_vs_lst_scatter_2020.py ← Figure 4 (LC vs LST 2020)
 │ ├── figure_05_delta_lc_vs_delta_lst.py ← Figure 5 (ΔLC vs ΔLST, mean)
 │ ├── table_03_correlations_2020.py ← Table 3 (2020 correlations)
@@ -101,6 +106,17 @@ One row per city × transition type (off‑diagonal + stable). Contains:
 | `n_images_2000` / `n_images_2020` | Number of Landsat scenes for each year |
 | `sensor_2000` / `sensor_2020` | Landsat sensor used |
 
+### `data/raw/` — Global Land Temperature (Berkeley Earth)
+Used as the global comparison baseline in Figure 2 and in the manuscript's discussion of urban vs. global warming rates.
+
+**Source:** Rohde, R. A. and Hausfather, Z. (2020). The Berkeley Earth Land/Ocean Temperature Record. *Earth Syst. Sci. Data*, 12, 3469–3479. https://doi.org/10.5194/essd-12-3469-2020
+
+**Product:** Land-only TAVG (`Complete_TAVG_complete.txt`) — this is the land-only product, not the Land+Ocean combined product, which uses a different (~14°C) baseline.
+
+**Baseline:** 1951–1980 absolute land-only temperature = 8.59°C ± 0.04 (read directly from the source file header at fetch time — see `berkeley_earth_land_tavg.meta.json` for the exact value used and access date).
+
+Regenerate with `scripts/00_fetch_berkeley_land.py`, which downloads the file fresh, validates the baseline against a plausible range (5–12°C) to catch product mixups, and writes all three files above.
+
 ---
 
 ## Google Earth Engine Scripts
@@ -126,13 +142,13 @@ To run, paste each script into the [Google Earth Engine Code Editor](https://cod
 ### Run Order
 
 ```
-table_03_correlations_2020.py → Table 3
+00_fetch_berkeley_land.py → downloads global land-only temperature data (required before figure_02)table_03_correlations_2020.py → Table 3
 table_04_correlations_delta.py → Table 4
 table_05_net_change_regression.py → Table 5
 table_06_transition_analysis.py → Tables 6
 table_07_rti_statistics.py → Table 7
 figure_02_lst_temporal_trends.py → Figure 2
-figure_03_landcover_composition_trends.py → Figure 3
+figure_03_lc_composition_trends.py → Figure 3
 figure_04_lc_vs_lst_scatter_2020.py → Figure 4
 figure_05_delta_lc_vs_delta_lst.py → Figure 5
 ```
@@ -140,20 +156,29 @@ figure_05_delta_lc_vs_delta_lst.py → Figure 5
 
 ### Script Details
 
+**`00_fetch_berkeley_land.py`**  
+Downloads Berkeley Earth's land-only TAVG dataset (Rohde & Hausfather, 2020), validates it against a plausible baseline range, and saves parsed annual values plus a metadata/citation file to `data/raw/`. Run this before `figure_02_lst_temporal_trends.py`.
+
+**Outputs:** `data/raw/berkeley_earth_land_tavg_raw.txt`, `data/raw/berkeley_earth_land_tavg.csv`, `data/raw/berkeley_earth_land_tavg.meta.json`
+
+---
+
 **`figure_02_lst_temporal_trends.py`**  
 Plots mean and maximum LST by land cover class across 2000–2020, overlaid with global mean land temperature (Berkeley Earth) and ENSO event markers (NOAA CPC ONI).
 
-**Inputs:** `data/city_year_lst_lc.csv`  
+**Inputs:** `data/city_year_lst_lc.csv`, 
+`data/raw/berkeley_earth_land_tavg.csv`,
+`data/raw/berkeley_earth_land_tavg.meta.json`  
 **Outputs:** `outputs/figures/figure_02_lst_temporal_trends.png`  
 **Key parameters:** ENSO years based on NOAA CPC Oceanic Niño Index (ONI ≥ 0.5 / ≤ −0.5 for ≥5 consecutive months)
 
 ---
 
-**`figure_03_landcover_composition_trends.py`**  
+**`figure_03_lc_composition_trends.py`**  
 Plots land cover percentage composition per year across all 100 cities — bold lines for cross-city mean, thin lines for individual city trajectories.
 
 **Inputs:** `data/city_year_lst_lc.csv`  
-**Outputs:** `outputs/figures/figure_03_landcover_composition_trends.png`  
+**Outputs:** `outputs/figures/figure_03_lc_composition_trends.png`  
 **Key parameters:** Individual city trajectories shown with α=0.12; cities with only one year of data are excluded from trajectory plots
 
 ---

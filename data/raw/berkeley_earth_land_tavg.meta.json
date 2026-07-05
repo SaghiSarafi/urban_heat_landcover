@@ -1,0 +1,9 @@
+{
+  "source_url": "https://berkeley-earth-temperature.s3.us-west-1.amazonaws.com/Global/Complete_TAVG_complete.txt",
+  "source_citation": "Rohde, R. A. and Hausfather, Z. (2020). The Berkeley Earth Land/Ocean Temperature Record. Earth Syst. Sci. Data, 12, 3469-3479. https://doi.org/10.5194/essd-12-3469-2020",
+  "product": "Land-only TAVG (Complete_TAVG_complete.txt)",
+  "baseline_period": "1951-1980",
+  "baseline_absolute_C": 8.59,
+  "accessed": "2026-07-04T23:05:54.357728Z",
+  "units": "Celsius / Kelvin, annual values centered on June of each year"
+}
