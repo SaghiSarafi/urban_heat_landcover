@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """
-Figure 3: Land cover composition trends across 100 global cities (2000–2020).
+Figure 3: Land cover composition trends across 100 global cities (2000-2020).
 Outputs: figure_03_lc_composition_trends.png
 Data required: city_year_lst_lc.csv
+
 """
 
+import matplotlib
 import pandas as pd
 import matplotlib.pyplot as plt
+
+matplotlib.rcParams['font.family'] = 'sans-serif'
+matplotlib.rcParams['font.sans-serif'] = ['Arial', 'Helvetica', 'DejaVu Sans']
 
 df = pd.read_csv("../data/city_year_lst_lc.csv")
 
@@ -27,7 +32,7 @@ color_map = {
     'Bare': '#9467BD'
 }
 
-fig, ax = plt.subplots(figsize=(14, 8))
+fig, ax = plt.subplots(figsize=(6.7, 4.5))
 
 # Individual city trajectories (thin lines)
 for lc_class in color_map.keys():
@@ -37,21 +42,24 @@ for lc_class in color_map.keys():
         city_data = lc_data[lc_data['city'] == city].sort_values('year')
         if len(city_data) > 1:
             ax.plot(city_data['year'], city_data['LC_percent'],
-                    color=color, alpha=0.12, linewidth=0.7, zorder=1)
+                    color=color, alpha=0.12, linewidth=0.4, zorder=1)
 
 # Sample average (bold lines)
 for lc_class in color_map.keys():
     avg_data = sample_avg[sample_avg['LC_class_name'] == lc_class].sort_values('year')
     ax.plot(avg_data['year'], avg_data['LC_percent'],
-            color=color_map[lc_class], linewidth=3.5, label=lc_class,
-            marker='o', markersize=7, zorder=3)
+            color=color_map[lc_class], linewidth=2.0, label=lc_class,
+            marker='o', markersize=3.5, zorder=3)
 
-ax.set_xlabel('Year', fontsize=16, fontweight='bold')
-ax.set_ylabel('Percent Land Cover (%)', fontsize=16, fontweight='bold')
-ax.legend(loc='best', fontsize=13)
+ax.set_xlabel('Year', fontsize=9, fontweight='bold')
+ax.set_ylabel('Percent Land Cover (%)', fontsize=9, fontweight='bold')
+ax.tick_params(axis='both', labelsize=7)
+ax.legend(loc='best', fontsize=7)
 ax.grid(True, alpha=0.3, linestyle='--')
 ax.set_xticks(sorted(df['year'].unique()))
 ax.set_ylim(0, max(sample_avg['LC_percent'].max() * 1.1, 10))
+
 plt.tight_layout()
-plt.savefig("../outputs/figures/figure_03_lc_composition_trends.png", dpi=300)
+plt.savefig("../outputs/figures/figure_03_lc_composition_trends.png",
+            dpi=600, bbox_inches='tight')
 plt.show()

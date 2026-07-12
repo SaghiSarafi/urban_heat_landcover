@@ -8,12 +8,18 @@ Data required:
   - ../data/raw/berkeley_earth_land_tavg.csv (from 00_fetch_berkeley_land.py)
 
 Run 00_fetch_berkeley_land.py first.
+
 """
 
+import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import json
+
+# Use a sans-serif font family (Helvetica/Arial), per journal artwork guidelines.
+matplotlib.rcParams['font.family'] = 'sans-serif'
+matplotlib.rcParams['font.sans-serif'] = ['Arial', 'Helvetica', 'DejaVu Sans']
 
 # ---- Load city/LC LST data -------------------------------------------------
 df = pd.read_csv("../data/city_year_lst_lc.csv")
@@ -51,7 +57,9 @@ el_nino_years = [2002, 2004, 2006, 2009, 2015, 2018]
 la_nina_years = [2000, 2005, 2007, 2008, 2010, 2011, 2016, 2017, 2020]
 
 # ---- Plotting ---------------------------------------------------------------
-plt.figure(figsize=(16, 9))
+# figsize is in inches and is chosen to match the ~170 mm (6.7 in) final
+# print width required by the journal, so no post-hoc shrinking happens.
+fig = plt.figure(figsize=(6.7, 4.4))
 sns.set(style="whitegrid")
 
 color_map = {
@@ -66,30 +74,36 @@ for lc_class in color_map.keys():
         display_label = f"{lc_class} (mean)" if metric == 'mean_LST' else f"{lc_class} (max)"
         plt.plot(subset['year'], subset[metric],
                  linestyle=line_styles[metric], color=color_map[lc_class],
-                 linewidth=2.5 if metric == 'mean_LST' else 1.8,
+                 linewidth=1.4 if metric == 'mean_LST' else 1.0,
                  label=display_label, zorder=3)
 
-plt.plot(berkeley_years, berkeley_land_temp_k, color='black', linewidth=3.5,
+plt.plot(berkeley_years, berkeley_land_temp_k, color='black', linewidth=2.0,
           label='Global Mean Land Temp (K)', zorder=4, alpha=0.9)
 
 for i, year in enumerate(el_nino_years):
-    plt.axvline(x=year, color='#C0392B', linestyle=':', alpha=0.6, linewidth=2.2,
+    plt.axvline(x=year, color='#C0392B', linestyle=':', alpha=0.6, linewidth=1.1,
                 label='El Nino' if i == 0 else "", zorder=1)
 for i, year in enumerate(la_nina_years):
-    plt.axvline(x=year, color='#27AE60', linestyle=':', alpha=0.6, linewidth=2.2,
+    plt.axvline(x=year, color='#27AE60', linestyle=':', alpha=0.6, linewidth=1.1,
                 label='La Nina' if i == 0 else "", zorder=1)
 
 plt.title("Temporal Dynamics of LST by LC Class with Global Mean Land Temperature (2000-2020)",
-          fontsize=18, fontweight='bold', pad=15)
-plt.xlabel("Year", fontsize=15, fontweight='bold')
-plt.ylabel("Temperature (K)", fontsize=15, fontweight='bold')
-plt.xticks(sorted(df['year'].unique()), fontsize=13)
-plt.yticks(fontsize=13)
-plt.legend(loc='upper left', bbox_to_anchor=(1.02, 1), fontsize=11)
+          fontsize=9.5, fontweight='bold', pad=8)
+plt.xlabel("Year", fontsize=9, fontweight='bold')
+plt.ylabel("Temperature (K)", fontsize=9, fontweight='bold')
+plt.xticks(sorted(df['year'].unique()), fontsize=7)
+plt.yticks(fontsize=7)
+
+# Legend placed below the plot in multiple columns so it doesn't force the
+# plot area itself to shrink to make room for a tall right-side legend.
+plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.18), ncol=4,
+           fontsize=6.5, frameon=True)
+
 plt.xlim(1999.5, 2020.5)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig("../outputs/figures/figure_02_lst_temporal_trends.png", dpi=300, bbox_inches='tight')
+plt.savefig("../outputs/figures/figure_02_lst_temporal_trends.png",
+            dpi=600, bbox_inches='tight')
 plt.show()
 
 # ---- Print delta summary for the manuscript text ---------------------------
