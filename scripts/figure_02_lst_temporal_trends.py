@@ -6,9 +6,9 @@ LAND-ONLY mean temperature (2000-2020).
 Data required:
   - ../data/city_year_lst_lc.csv   (your GEE-derived LST/LC data)
   - ../data/raw/berkeley_earth_land_tavg.csv (from 00_fetch_berkeley_land.py)
+  - ../data/raw/noaa_oni.csv (from 00_fetch_noaa_oni.py)
 
-Run 00_fetch_berkeley_land.py first.
-
+Run 00_fetch_berkeley_land.py and 00_fetch_noaa_oni.py first.
 """
 
 import matplotlib
@@ -38,7 +38,6 @@ berkeley = pd.read_csv("../data/raw/berkeley_earth_land_tavg.csv")
 with open("../data/raw/berkeley_earth_land_tavg.meta.json") as f:
     berkeley_meta = json.load(f)
 
-# June-centered annual values, restricted to the study period
 berkeley_annual = berkeley[(berkeley.month == 6) &
                             (berkeley.year >= 2000) & (berkeley.year <= 2020)]
 berkeley_years = berkeley_annual['year'].tolist()
@@ -49,16 +48,18 @@ assert len(berkeley_years) == 21, (
     f"check the Berkeley Earth data file for missing years."
 )
 
-# ---- ENSO years (NOAA CPC ONI, peak years) ---------------------------------
-# NOTE: these are still literals below. If you want the same rigor applied
-# here, replace with a downloaded ONI table from NOAA CPC and drop the
-# hardcoded lists, the same way the Berkeley Earth series was fixed above.
-el_nino_years = [2002, 2004, 2006, 2009, 2015, 2018]
-la_nina_years = [2000, 2005, 2007, 2008, 2010, 2011, 2016, 2017, 2020]
+# ---- ENSO years (NOAA CPC ONI, computed from real data, not hardcoded) -----
+# Classification rule: ONI >= +0.5C (El Nino) or <= -0.5C (La Nina),
+# sustained for >=5 consecutive overlapping 3-month seasons (NOAA CPC
+# standard). Each calendar year is labeled by its DJF (winter) season only,
+# so a year is marked only if it officially qualifies. See
+# 00_fetch_noaa_oni.py for the full classification logic and source data.
+with open("../data/raw/noaa_oni.meta.json") as f:
+    oni_meta = json.load(f)
+el_nino_years = oni_meta["el_nino_years_2000_2020"]
+la_nina_years = oni_meta["la_nina_years_2000_2020"]
 
 # ---- Plotting ---------------------------------------------------------------
-# figsize is in inches and is chosen to match the ~170 mm (6.7 in) final
-# print width required by the journal, so no post-hoc shrinking happens.
 fig = plt.figure(figsize=(6.7, 4.4))
 sns.set(style="whitegrid")
 
@@ -77,8 +78,11 @@ for lc_class in color_map.keys():
                  linewidth=1.4 if metric == 'mean_LST' else 1.0,
                  label=display_label, zorder=3)
 
+# Global mean land temperature: dash-dot style so it's visually distinct
+# from the solid Vegetation (mean) line (Reviewer 1, comment on Fig. 2).
 plt.plot(berkeley_years, berkeley_land_temp_k, color='black', linewidth=2.0,
-          label='Global Mean Land Temp (K)', zorder=4, alpha=0.9)
+          linestyle=(0, (5, 1, 1, 1)), label='Global Mean Land Temp (K)',
+          zorder=4, alpha=0.9)
 
 for i, year in enumerate(el_nino_years):
     plt.axvline(x=year, color='#C0392B', linestyle=':', alpha=0.6, linewidth=1.1,
@@ -94,8 +98,6 @@ plt.ylabel("Temperature (K)", fontsize=9, fontweight='bold')
 plt.xticks(sorted(df['year'].unique()), fontsize=7)
 plt.yticks(fontsize=7)
 
-# Legend placed below the plot in multiple columns so it doesn't force the
-# plot area itself to shrink to make room for a tall right-side legend.
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.18), ncol=4,
            fontsize=6.5, frameon=True)
 
@@ -108,10 +110,13 @@ plt.show()
 
 # ---- Print delta summary for the manuscript text ---------------------------
 print("\n" + "=" * 60)
-print("DATA SOURCE (cite this in the manuscript / methods):")
+print("DATA SOURCES (cite these in the manuscript / methods):")
 print(f"  {berkeley_meta['source_citation']}")
 print(f"  Product: {berkeley_meta['product']}")
 print(f"  Accessed: {berkeley_meta['accessed']}")
+print(f"  {oni_meta['source_citation']}")
+print(f"  Classification: {oni_meta['classification_rule']}")
+print(f"  Accessed: {oni_meta['accessed']}")
 print("=" * 60)
 
 global_2000 = berkeley_annual.loc[berkeley_annual.year == 2000, 'absolute_temp_C'].values[0]
@@ -129,6 +134,5 @@ for lc_name in color_map.keys():
         d = v2020[0] - v2000[0]
         print(f"  {lc_name:12s} mean_LST delta: {d:5.2f} K  ({d/global_delta:.2f}x global)")
 
-print("\nENSO years used (still hardcoded - see note in script header):")
-print(f"El Nino  : {el_nino_years}")
-print(f"La Nina  : {la_nina_years}")
+print(f"\nEl Nino years (computed, not hardcoded): {el_nino_years}")
+print(f"La Nina years (computed, not hardcoded): {la_nina_years}")
