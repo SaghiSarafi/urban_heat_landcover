@@ -59,6 +59,16 @@ This file is provided for reference and transparency; the Python scripts do not 
   [https://doi.org/10.3389/frsen.2022.856903](https://doi.org/10.3389/frsen.2022.856903)
 - **City boundaries:** Administrative polygons from OpenStreetMap via the OSMnx Python package (Boeing 2017, *Computers, Environment and Urban Systems*).
 
+## Global Comparison Data (`raw/` subfolder)
+
+Used in Figure 2 as global reference series overlaid on the city-level LST trends.
+
+### `raw/berkeley_earth_land_tavg.csv`
+Global mean land-only surface temperature, 2000–2020. Source: Rohde, R. A. and Hausfather, Z. (2020). *Earth Syst. Sci. Data*, 12, 3469–3479. https://doi.org/10.5194/essd-12-3469-2020. Regenerate with `scripts/00_fetch_berkeley_land.py`.
+
+### `raw/noaa_oni.csv`
+NOAA Climate Prediction Center Oceanic Niño Index (ONI), seasonal values, with computed El Niño/La Niña episode flags. Classification: ONI ≥ +0.5°C (El Niño) or ≤ −0.5°C (La Niña), sustained for ≥5 consecutive overlapping 3-month seasons (NOAA CPC standard). Each calendar year in Figure 2 is labeled by its DJF (winter) season only, so a year is marked only if it officially qualifies under this rule. Regenerate with `scripts/00_fetch_noaa_oni.py`. See `raw/noaa_oni.meta.json` for the exact year lists used and source citation.
+
 ## Notes
 
 - Missing values (e.g., no valid LST pixels for a given city‑year‑LC combination) are omitted from the CSV.

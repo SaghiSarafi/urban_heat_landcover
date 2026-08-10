@@ -44,7 +44,9 @@ urban_heat_landcover/
 │ └── raw/
 │   ├── berkeley_earth_land_tavg_raw.txt ← Original downloaded Berkeley Earth file
 │   ├── berkeley_earth_land_tavg.csv ← Parsed annual land-only temperature (2000–2020)
-│   └── berkeley_earth_land_tavg.meta.json ← Source citation, baseline, access date
+│   ├── berkeley_earth_land_tavg.meta.json ← Source citation, baseline, access date
+│   ├── noaa_oni.csv ← NOAA ONI seasonal values with El Niño/La Niña episode flags
+│   └── noaa_oni.meta.json ← Source citation, classification rule, computed year lists
 │
 ├── GEE/
 │ ├── README_GEE.md ← GEE script documentation
@@ -54,6 +56,7 @@ urban_heat_landcover/
 ├── scripts/
 │ ├── README_scripts.md ← Script descriptions and run order
 │ ├── 00_fetch_berkeley_land.py ← Downloads global land-only temperature data
+│ ├── 00_fetch_noaa_oni.py ← Downloads NOAA ONI data, classifies El Niño/La Niña years
 │ ├── figure_02_lst_temporal_trends.py ← Figure 2 (temporal LST trends)
 │ ├── figure_03_lc_composition_trends.py ← Figure 3 (LC trends)
 │ ├── figure_04_lc_vs_lst_scatter_2020.py ← Figure 4 (LC vs LST 2020)
@@ -65,7 +68,7 @@ urban_heat_landcover/
 │ └── table_07_rti_statistics.py ← Table 7 (RTI)
 │
 ├── outputs/
-│ ├── figures/ ← Generated figures (PNG, 300 dpi)
+│ ├── figures/ ← Generated figures (PNG, 600 dpi)
 │ └── tables/ ← Generated CSV result tables
 │
 └── docs/
@@ -117,6 +120,15 @@ Used as the global comparison baseline in Figure 2 and in the manuscript's discu
 
 Regenerate with `scripts/00_fetch_berkeley_land.py`, which downloads the file fresh, validates the baseline against a plausible range (5–12°C) to catch product mixups, and writes all three files above.
 
+### `data/raw/` — ENSO Index (NOAA CPC)
+Used to mark El Niño/La Niña years as vertical reference lines in Figure 2.
+
+**Source:** NOAA Climate Prediction Center. Oceanic Niño Index (ONI). https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt
+
+**Classification:** ONI ≥ +0.5°C (El Niño) or ≤ −0.5°C (La Niña), sustained for ≥5 consecutive overlapping 3-month seasons — the standard NOAA CPC persistence rule. Each calendar year is classified by its DJF (winter) season only, giving exactly one classification per year with no overlap or double-counting.
+
+Regenerate with `scripts/00_fetch_noaa_oni.py`, which downloads the file fresh, applies the classification rule to the full historical record, and writes the CSV plus a metadata file with the exact year lists used (see `noaa_oni.meta.json`).
+
 ---
 
 ## Google Earth Engine Scripts
@@ -142,7 +154,9 @@ To run, paste each script into the [Google Earth Engine Code Editor](https://cod
 ### Run Order
 
 ```
-00_fetch_berkeley_land.py → downloads global land-only temperature data (required before figure_02)table_03_correlations_2020.py → Table 3
+00_fetch_berkeley_land.py → downloads global land-only temperature data (required before figure_02)
+00_fetch_noaa_oni.py → downloads NOAA ONI data, classifies El Niño/La Niña years (required before figure_02)
+table_03_correlations_2020.py → Table 3
 table_04_correlations_delta.py → Table 4
 table_05_net_change_regression.py → Table 5
 table_06_transition_analysis.py → Tables 6
@@ -163,14 +177,23 @@ Downloads Berkeley Earth's land-only TAVG dataset (Rohde & Hausfather, 2020), va
 
 ---
 
+**`00_fetch_noaa_oni.py`**  
+Downloads NOAA CPC's Oceanic Niño Index (ONI), applies the standard 5-consecutive-season persistence rule to classify El Niño/La Niña episodes, and saves the classified data plus a metadata/citation file to `data/raw/`. Run this before `figure_02_lst_temporal_trends.py`.
+
+**Outputs:** `data/raw/noaa_oni.csv`, `data/raw/noaa_oni.meta.json`
+
+---
+
 **`figure_02_lst_temporal_trends.py`**  
 Plots mean and maximum LST by land cover class across 2000–2020, overlaid with global mean land temperature (Berkeley Earth) and ENSO event markers (NOAA CPC ONI).
 
 **Inputs:** `data/city_year_lst_lc.csv`, 
 `data/raw/berkeley_earth_land_tavg.csv`,
-`data/raw/berkeley_earth_land_tavg.meta.json`  
+`data/raw/berkeley_earth_land_tavg.meta.json`,
+`data/raw/noaa_oni.csv`,
+`data/raw/noaa_oni.meta.json`  
 **Outputs:** `outputs/figures/figure_02_lst_temporal_trends.png`  
-**Key parameters:** ENSO years based on NOAA CPC Oceanic Niño Index (ONI ≥ 0.5 / ≤ −0.5 for ≥5 consecutive months)
+**Key parameters:** ENSO years computed from NOAA CPC Oceanic Niño Index (ONI ≥ +0.5°C / ≤ −0.5°C, sustained ≥5 consecutive overlapping seasons; each year classified by its DJF season only) — see `00_fetch_noaa_oni.py`
 
 ---
 
@@ -237,8 +260,8 @@ Computes Relative Temperature Index (RTI) for each LC class across all city-year
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/urban-heat-landcover.git
-cd urban-heat-landcover
+git clone https://github.com/SaghiSarafi/urban-heat-landcover.git
+cd urban_heat_landcover
 
 # Create a virtual environment (recommended)
 python -m venv venv
