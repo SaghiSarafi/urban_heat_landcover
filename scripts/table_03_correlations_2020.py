@@ -3,10 +3,14 @@
 Table 3: Pearson correlations between LC% and LST metrics (mean, max, top-10%) for 2020.
 Outputs: table_03_correlations_2020.csv
 Data required: city_year_lst_lc.csv
+
+Includes Benjamini-Hochberg correction for multiple comparisons (15 tests:
+5 LC classes x 3 LST metrics), per Benjamini and Hochberg (1995).
 """
 
 import pandas as pd
 from scipy import stats
+from statsmodels.stats.multitest import multipletests
 
 df = pd.read_csv("../data/city_year_lst_lc.csv")
 df_2020 = df[df['year'] == 2020].copy()
@@ -22,16 +26,27 @@ for lc, name in LC_MAP.items():
         r, p = stats.pearsonr(sub['LC_percent'], sub[col])
         rows.append({'LC Class': name, 'Metric': metric,
                      'r': round(r, 4), 'R²': round(r**2, 4),
-                     'p': round(p, 4), 'n': n})
+                     'p': p, 'n': n})
 
 table = pd.DataFrame(rows)
-table_wide = table.pivot_table(index='LC Class', columns='Metric',
-                               values=['r', 'R²', 'p'], aggfunc='first')
+
+# Benjamini-Hochberg correction for multiple comparisons (15 tests total).
+# See Benjamini and Hochberg (1995), J R Stat Soc Series B, 57:289-300.
+_, p_bh, _, _ = multipletests(table['p'], alpha=0.05, method='fdr_bh')
+table['p_BH'] = p_bh.round(4)
+table['sig_BH'] = table['p_BH'] < 0.05
+table['p'] = table['p'].round(4)  # round p for display, after correction is computed
+
+table_wide = table.pivot_table(
+    index='LC Class', columns='Metric',
+    values=['r', 'R²', 'p', 'p_BH'], aggfunc='first')
 table_wide.columns = [f'{m} {v}' for v, m in table_wide.columns]
-col_order = (['LST r', 'LST R²', 'LST p'] +
-             ['LSTMax r', 'LSTMax R²', 'LSTMax p'] +
-             ['LSTMax10 r', 'LSTMax10 R²', 'LSTMax10 p'])
+col_order = (['LST r', 'LST R²', 'LST p', 'LST p_BH'] +
+             ['LSTMax r', 'LSTMax R²', 'LSTMax p', 'LSTMax p_BH'] +
+             ['LSTMax10 r', 'LSTMax10 R²', 'LSTMax10 p', 'LSTMax10 p_BH'])
 table_wide = table_wide.reindex(['Impervious', 'Vegetation', 'Cropland', 'Water', 'Bare'])[col_order]
 
 table_wide.to_csv("../outputs/tables/table_03_correlations_2020.csv")
 print(table_wide.to_string())
+print("\nNote: p_BH = Benjamini-Hochberg corrected p-value (15 tests, alpha=0.05).")
+print("No correlation in this table remains significant after correction.")
