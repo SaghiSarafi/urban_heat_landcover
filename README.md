@@ -222,6 +222,24 @@ Creates 5-panel scatter plot (one per LC class) showing the relationship between
 
 ---
 
+**`table_03_correlations_2020.py`**  
+Pearson correlations between LC percent cover and LST metrics (mean, max, top-10%) across cities in 2020. Includes Benjamini-Hochberg correction for multiple comparisons (15 tests: 5 LC classes × 3 metrics).
+
+**Inputs:** `data/city_year_lst_lc.csv`  
+**Outputs:** `outputs/tables/table_03_correlations_2020.csv`  
+**Key result:** No correlation in this table survives Benjamini-Hochberg correction (all corrected p ≥ 0.135); these static, weak relationships motivate the change- and transition-based analyses (Tables 4–7) that follow.
+
+---
+
+**`table_04_correlations_delta.py`**  
+Pearson correlations between net LC change (2000–2020) and change in LST metrics across cities. Includes Benjamini-Hochberg correction for multiple comparisons (15 tests: 5 LC classes × 3 metrics).
+
+**Inputs:** `data/city_year_lst_lc.csv`  
+**Outputs:** `outputs/tables/table_04_correlations_delta.csv`  
+**Key result:** Impervious cover change survives correction across all three metrics (corrected p = 0.037); cropland change survives for mean LST only (corrected p = 0.012). These bivariate correlations motivate, but are not the primary evidence for, the multivariate regression results in Table 5.
+
+---
+
 **`table_05_net_change_regression.py`**  
 OLS multiple regression of city-level LST change (ΔLST, ΔLSTMax, ΔLSTMax10) on net percentage change in each LC class between 2000 and 2020. Implements **Level 1** of the hierarchical framework.
 

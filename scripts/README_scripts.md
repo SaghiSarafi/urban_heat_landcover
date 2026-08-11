@@ -15,6 +15,12 @@ This folder contains all Python scripts used to generate the figures and tables 
 10. figure_04_lc_vs_lst_scatter_2020.py → Figure 4
 11. figure_05_delta_lc_vs_delta_lst.py → Figure 5
 
+## Notes
+Tables 3 and 4 (table_03_correlations_2020.py, table_04_correlations_delta.py) include
+Benjamini-Hochberg correction for multiple comparisons (Benjamini and Hochberg 1995),
+computed via statsmodels.stats.multitest. No additional dependencies required —
+statsmodels is already listed in requirements.txt.
+
 ## Setup
 pip install -r requirements.txt
 Place city_year_lst_lc.csv and pixel_transitions_thermal_2000_2020.csv
