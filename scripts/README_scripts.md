@@ -14,6 +14,8 @@ This folder contains all Python scripts used to generate the figures and tables 
 9. figure_03_lc_composition_trends.py → Figure 3
 10. figure_04_lc_vs_lst_scatter_2020.py → Figure 4
 11. figure_05_delta_lc_vs_delta_lst.py → Figure 5
+12. figure_06_rti_distributions.py → Figure 6 (requires Tables 6-7's underlying data pipeline)
+13. figure_07_rti_compositional_sensitivity.py → Figure 7
 
 ## Notes
 Tables 3 and 4 (table_03_correlations_2020.py, table_04_correlations_delta.py) include
@@ -27,5 +29,5 @@ Place city_year_lst_lc.csv and pixel_transitions_thermal_2000_2020.csv
 in the same directory as the scripts, or update the file paths.
 
 ## Outputs
-Figures saved as PNG (300 dpi) in outputs/figures/
+Figures saved as PNG (600 dpi) in outputs/figures/
 Tables saved as CSV in outputs/tables/

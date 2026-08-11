@@ -61,6 +61,8 @@ urban_heat_landcover/
 │ ├── figure_03_lc_composition_trends.py ← Figure 3 (LC trends)
 │ ├── figure_04_lc_vs_lst_scatter_2020.py ← Figure 4 (LC vs LST 2020)
 │ ├── figure_05_delta_lc_vs_delta_lst.py ← Figure 5 (ΔLC vs ΔLST, mean)
+│ ├── figure_06_rti_distributions.py ← Figure 6 (RTI boxplots)
+│ ├── figure_07_rti_compositional_sensitivity.py ← Figure 7 (RTI compositional dependence)
 │ ├── table_03_correlations_2020.py ← Table 3 (2020 correlations)
 │ ├── table_04_correlations_delta.py ← Table 4 (Δcorrelations)
 │ ├── table_05_net_change_regression.py ← Table 5 (net change regression)
@@ -165,6 +167,8 @@ figure_02_lst_temporal_trends.py → Figure 2
 figure_03_lc_composition_trends.py → Figure 3
 figure_04_lc_vs_lst_scatter_2020.py → Figure 4
 figure_05_delta_lc_vs_delta_lst.py → Figure 5
+figure_06_rti_distributions.py → Figure 6
+figure_07_rti_compositional_sensitivity.py → Figure 7
 ```
 ---
 
@@ -219,6 +223,23 @@ Creates 5-panel scatter plot (one per LC class) showing the relationship between
 
 **Inputs:** `data/city_year_lst_lc.csv`  
 **Outputs:** `outputs/figures/figure_05_delta_lc_vs_delta_lst.png`
+
+---
+
+**`figure_06_rti_distributions.py`**  
+Boxplots of RTI distributions by land-cover class across all city-years, complementing the summary statistics in Table 7.
+
+**Inputs:** `data/city_year_lst_lc.csv`  
+**Outputs:** `outputs/figures/figure_06_rti_distributions.png`
+
+---
+
+**`figure_07_rti_compositional_sensitivity.py`**  
+Tests whether RTI for impervious and water surfaces depends on how much of that class is present in a city. Two-panel scatter: RTI vs. percent cover for each class, with linear fit.
+
+**Inputs:** `data/city_year_lst_lc.csv`  
+**Outputs:** `outputs/figures/figure_07_rti_compositional_sensitivity.png`  
+**Key result:** Both impervious RTI (r = 0.258, p < 0.0001) and water RTI (r = −0.274, p < 0.0001) show a significant relationship with their own percent cover — in both cases, more of the class is associated with a *stronger* deviation from the city mean, contrary to a simple compositional-dilution expectation.
 
 ---
 
@@ -278,7 +299,7 @@ Computes Relative Temperature Index (RTI) for each LC class across all city-year
 
 ```bash
 # Clone the repository
-git clone https://github.com/SaghiSarafi/urban-heat-landcover.git
+git clone https://github.com/SaghiSarafi/urban_heat_landcover.git
 cd urban_heat_landcover
 
 # Create a virtual environment (recommended)
