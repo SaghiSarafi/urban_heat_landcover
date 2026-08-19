@@ -34,7 +34,7 @@ city_year_means = df_pivot.groupby(['city', 'year']).mean().reset_index().rename
 df_rti = df_pivot.reset_index().merge(city_year_means, on=['city', 'year'])
 df_rti['RTI'] = df_rti['mean_LST'] / df_rti['city_mean_LST']
 
-colors = {'Impervious': '#E69F00', 'Water': '#56B4E9'}
+colors = {'Impervious': '#D62728', 'Water': '#1F77B4'}
 
 fig, axes = plt.subplots(1, 2, figsize=(6.7, 3.2))
 

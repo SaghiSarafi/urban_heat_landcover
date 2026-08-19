@@ -64,8 +64,11 @@ fig = plt.figure(figsize=(6.7, 4.4))
 sns.set(style="whitegrid")
 
 color_map = {
-    'Impervious': '#E69F00', 'Vegetation': '#009E73', 'Cropland': '#F0E442',
-    'Water': '#56B4E9', 'Bare': '#CC79A7'
+    'Impervious': '#D62728',
+    'Vegetation': '#2CA02C',
+    'Cropland': '#FF7F0E',
+    'Water': '#1F77B4',
+    'Bare': '#9467BD'
 }
 line_styles = {'mean_LST': '-', 'max_LST': '--'}
 
