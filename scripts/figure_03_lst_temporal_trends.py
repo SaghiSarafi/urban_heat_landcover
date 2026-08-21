@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Figure 2: Temporal dynamics of LST by land cover class with global
+Figure 3: Temporal dynamics of LST by land cover class with global
 LAND-ONLY mean temperature (2000-2020).
 
 Data required:
@@ -107,7 +107,7 @@ plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.18), ncol=4,
 plt.xlim(1999.5, 2020.5)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig("../outputs/figures/figure_02_lst_temporal_trends.png",
+plt.savefig("../outputs/figures/figure_03_lst_temporal_trends.png",
             dpi=600, bbox_inches='tight')
 plt.show()
 

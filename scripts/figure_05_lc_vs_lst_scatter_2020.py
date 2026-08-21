@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Figure 4: Scatter plots of LC% vs LST metrics (mean, max, top-10%) for each LC class in 2020.
+Figure 5: Scatter plots of LC% vs LST metrics (mean, max, top-10%) for each LC class in 2020.
 Includes correlation coefficients and regression lines where p < 0.05.
-Outputs: figure_04_lc_vs_lst_scatter_2020.png
+Outputs: figure_05_lc_vs_lst_scatter_2020.png
 Data required: city_year_lst_lc.csv
 
 """
@@ -124,6 +124,6 @@ legend_elements = [
 ax_legend.legend(handles=legend_elements, loc='center', fontsize=6.5, frameon=True)
 
 plt.tight_layout(rect=[0.02, 0.04, 1, 0.98])
-plt.savefig("../outputs/figures/figure_04_lc_vs_lst_scatter_2020.png",
+plt.savefig("../outputs/figures/figure_05_lc_vs_lst_scatter_2020.png",
             dpi=600, bbox_inches='tight')
 plt.show()

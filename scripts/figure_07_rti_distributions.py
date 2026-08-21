@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 """
-Figure 6: Distribution of Relative Temperature Index (RTI) values by land
+Figure 7: Distribution of Relative Temperature Index (RTI) values by land
 cover class across all city-years, shown as boxplots (complements the
 summary statistics in Table 7).
 
-Outputs: figure_06_rti_distributions.png
+Outputs: figure_07_rti_distributions.png
 Data required: city_year_lst_lc.csv
 
-PRINT SIZING NOTE: figsize is chosen to match the ~170 mm final print
-width required by the journal directly, rather than a larger on-screen
-size that gets shrunk later (see figure_02 script for the full rationale).
 """
 
 import matplotlib
@@ -56,10 +53,10 @@ ax.tick_params(axis='both', labelsize=8)
 ax.grid(True, alpha=0.3, axis='y', linestyle='--')
 
 plt.tight_layout()
-plt.savefig("../outputs/figures/figure_06_rti_distributions.png", dpi=600, bbox_inches='tight')
+plt.savefig("../outputs/figures/figure_07_rti_distributions.png", dpi=600, bbox_inches='tight')
 plt.show()
 
-print("Figure 6 saved to ../outputs/figures/figure_06_rti_distributions.png")
+print("Figure 7 saved to ../outputs/figures/figure_07_rti_distributions.png")
 for cls in order:
     vals = df_rti[df_rti['LC_name'] == cls]['RTI'].dropna()
     print(f"  {cls:12s} median={vals.median():.4f}  IQR=[{vals.quantile(0.25):.4f}, {vals.quantile(0.75):.4f}]")

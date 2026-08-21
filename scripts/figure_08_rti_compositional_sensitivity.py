@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Figure 7: Sensitivity of Relative Temperature Index (RTI) to land-cover
+Figure 8: Sensitivity of Relative Temperature Index (RTI) to land-cover
 composition. Tests whether RTI for a class is systematically related to
 how much of that class is present in a city (a class dominating its own
 normalizing city-year mean could in principle compress RTI toward 1.0).
@@ -8,12 +8,9 @@ normalizing city-year mean could in principle compress RTI toward 1.0).
 Panel (a): RTI for impervious surfaces vs. percent impervious cover.
 Panel (b): RTI for water vs. percent water cover.
 
-Outputs: figure_07_rti_compositional_sensitivity.png
+Outputs: figure_08_rti_compositional_sensitivity.png
 Data required: city_year_lst_lc.csv
 
-PRINT SIZING NOTE: figsize is chosen to match the ~170 mm final print
-width required by the journal directly (see figure_02 script for the
-full rationale).
 """
 
 import matplotlib
@@ -67,11 +64,11 @@ r_wat, p_wat, n_wat = sensitivity_panel(
     '% Water cover', 'RTI (Water)')
 
 plt.tight_layout()
-plt.savefig("../outputs/figures/figure_07_rti_compositional_sensitivity.png",
+plt.savefig("../outputs/figures/figure_08_rti_compositional_sensitivity.png",
             dpi=600, bbox_inches='tight')
 plt.show()
 
-print("Figure 7 saved to ../outputs/figures/figure_07_rti_compositional_sensitivity.png")
+print("Figure 8 saved to ../outputs/figures/figure_08_rti_compositional_sensitivity.png")
 print(f"\nImpervious RTI vs %impervious: r={r_imp:.4f}, p={p_imp:.2e}, n={n_imp}")
 print(f"Water RTI vs %water: r={r_wat:.4f}, p={p_wat:.2e}, n={n_wat}")
 print("\nBoth relationships run counter to a simple compositional-dilution expectation:")

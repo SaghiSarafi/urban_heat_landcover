@@ -29,7 +29,7 @@ CSV files exported to Google Drive (one per batch). After merging, rename to `pi
 ### `03_boundary_covariates_ghsl_compactness.js`
 
 **Purpose:**
-Computes two boundary-sensitivity covariates for each city, used in Table 5b to test whether administrative boundary characteristics confound the Level 1 net-change results:
+Computes two boundary-sensitivity covariates for each city, used in Table 5 (alongside the five land-cover predictors, in a single regression) to test whether administrative boundary characteristics confound the Level 1 net-change results:
 - **Area ratio:** each city's administrative-boundary land area divided by the area of the corresponding GHS-SMOD Urban Centre extent (a population/built-up-density-based definition of urban extent, independent of administrative boundaries) — how much of the city's real full extent the boundary captures.
 - **Perimeter-area ratio:** boundary shape irregularity (perimeter ÷ √area), addressing the reviewer's specific request for a compactness metric.
 

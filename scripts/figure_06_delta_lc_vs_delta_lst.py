@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Figure 5: Scatter plots of ΔLC% vs ΔLST (mean LST) for each LC class (2000-2020).
+Figure 6: Scatter plots of ΔLC% vs ΔLST (mean LST) for each LC class (2000-2020).
 Includes regression lines and correlation coefficients.
-Outputs: figure_05_delta_lc_vs_delta_lst.png
+Outputs: figure_06_delta_lc_vs_delta_lst.png
 Data required: city_year_lst_lc.csv
 
 """
@@ -52,6 +52,6 @@ for i, (lc, display) in enumerate(zip(lc_labels, lc_display)):
 
 axes[5].axis('off')
 plt.tight_layout()
-plt.savefig("../outputs/figures/figure_05_delta_lc_vs_delta_lst.png",
+plt.savefig("../outputs/figures/figure_06_delta_lc_vs_delta_lst.png",
             dpi=600, bbox_inches='tight')
 plt.show()

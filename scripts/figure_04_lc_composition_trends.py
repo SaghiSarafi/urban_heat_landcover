@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Figure 3: Land cover composition trends across 100 global cities (2000-2020).
-Outputs: figure_03_lc_composition_trends.png
+Figure 4: Land cover composition trends across 100 global cities (2000-2020).
+Outputs: figure_04_lc_composition_trends.png
 Data required: city_year_lst_lc.csv
 
 """
@@ -60,6 +60,6 @@ ax.set_xticks(sorted(df['year'].unique()))
 ax.set_ylim(0, max(sample_avg['LC_percent'].max() * 1.1, 10))
 
 plt.tight_layout()
-plt.savefig("../outputs/figures/figure_03_lc_composition_trends.png",
+plt.savefig("../outputs/figures/figure_04_lc_composition_trends.png",
             dpi=600, bbox_inches='tight')
 plt.show()
