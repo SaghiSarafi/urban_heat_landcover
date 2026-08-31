@@ -21,7 +21,7 @@
  *   After merging, rename to 'city_year_lst_lc.csv'.
  *
  * Notes:
- *   - Summer window: Northern = Jun–Aug; Southern = Dec–Feb (previous/current year)
+ *   - Summer window: Northern = Jun–Aug; Southern = Nov–Mar (previous/current year)
  *   - Top-10% LST = (90th percentile + 100th percentile) / 2
  *   - City boundaries are simplified (500 m) to reduce memory usage.
  *   - Batch size 20 works for most cities; reduce if timeouts occur.
