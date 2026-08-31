@@ -1,4 +1,4 @@
-# Landcover Change and Urban Heat in a Warming Climate: A Global Satellite Perspective
+# Land-cover Change and Urban Heat in a Warming Climate: A Global Satellite Perspective
 
 [![DOI](https://zenodo.org/badge/DOI/10.xxxx/zenodo.xxxxxxx.svg)](https://doi.org/10.xxxx/zenodo.xxxxxxx)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -14,7 +14,7 @@
 
 ## Overview
 
-This repository contains all data, code, and supplementary materials for the study analyzing how **landcover (LC) change mediates Urban Heat Island (UHI) dynamics** across **100 major global cities** from **2000 to 2020**, using Google Earth Engine (GEE) with Landsat-derived Land Surface Temperature (LST) and the GLAD land‑cover dataset.
+This repository contains all data, code, and supplementary materials for the study analyzing how **land-cover (LC) change mediates Urban Heat Island (UHI) dynamics** across **100 major global cities** from **2000 to 2020**, using Google Earth Engine (GEE) with Landsat-derived Land Surface Temperature (LST) and the GLAD land-cover dataset.
 
 The study introduces a **hierarchical three‑level analytical framework**:
 
@@ -354,13 +354,13 @@ statsmodels>=0.14
 
 If you use this code or data, please cite:
 
-> Sarafi, S., Lippitt, C. D., & Paulus, G. (2026). Landcover Change and Urban Heat in a Warming Climate: A Global Satellite Perspective. *[Journal Name]*. https://doi.org/XXXX
+> Sarafi, S., Lippitt, C. D., & Paulus, G. (2026). Land-cover Change and Urban Heat in a Warming Climate: A Global Satellite Perspective. *[Journal Name]*. https://doi.org/XXXX
 
 BibTeX:
 ```bibtex
 @article{sarafi2026,
   author  = {Sarafi, Saghi and Lippitt, Christopher D. and Paulus, Gernot},
-  title   = {Landcover Change and Urban Heat in a Warming Climate: A Global Satellite Perspective},
+  title   = {Land-cover Change and Urban Heat in a Warming Climate: A Global Satellite Perspective},
   journal = {[Journal Name]},
   year    = {2026},
   doi     = {XXXX}
