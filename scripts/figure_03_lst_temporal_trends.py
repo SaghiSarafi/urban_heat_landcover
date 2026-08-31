@@ -82,7 +82,6 @@ for lc_class in color_map.keys():
                  label=display_label, zorder=3)
 
 # Global mean land temperature: dash-dot style so it's visually distinct
-# from the solid Vegetation (mean) line (Reviewer 1, comment on Fig. 2).
 plt.plot(berkeley_years, berkeley_land_temp_k, color='black', linewidth=2.0,
           linestyle=(0, (5, 1, 1, 1)), label='Global Mean Land Temp (K)',
           zorder=4, alpha=0.9)
