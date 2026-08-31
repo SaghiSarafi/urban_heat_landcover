@@ -10,10 +10,7 @@ Source: NOAA Climate Prediction Center (CPC)
         base period.
 File:   oni.ascii.txt
 
-Run this before figure_03_lst_temporal_trends.py. This replaces the
-hand-typed El Nino / La Nina year lists that were previously hardcoded
-directly in the figure script (flagged in that script's own comments as
-needing this exact fix).
+Run this before figure_03_lst_temporal_trends.py.
 
 CLASSIFICATION RULE (NOAA CPC standard):
   - A season is "warm" if ONI >= +0.5 C, "cool" if ONI <= -0.5 C.
