@@ -12,6 +12,8 @@ For each city and each analysis year (2000, 2005, 2010, 2015, 2020), compute:
 - Mean, maximum, and mean of the top‑10% summer LST (Kelvin) for each LC class.
 - Number of valid images and sensor used.
 
+Local summer season is used for each city: June 1 – August 31 for Northern Hemisphere cities, November 1 – March 31 for Southern Hemisphere cities (the wider window compensates for higher regional cloud cover during the Southern summer).
+
 **Outputs:**
 CSV files exported to Google Drive (one per batch). After merging all batches, rename to `city_year_lst_lc.csv`.
 
