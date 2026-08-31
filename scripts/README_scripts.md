@@ -6,8 +6,8 @@ This folder contains all Python scripts used to generate the figures and tables 
 Note: Figures 1 and 2 are introductory (study cities map; area-ratio covariate
 distribution) and are not included in this run order.
 
-1. 00_fetch_berkeley_land.py → downloads global land-only temperature data (required before step 7)
-2. 00_fetch_noaa_oni.py → downloads NOAA ONI data and classifies El Niño/La Niña years (required before step 7)
+1. 00_fetch_berkeley_land.py → downloads global land-only temperature data (required before step 8)
+2. 00_fetch_noaa_oni.py → downloads NOAA ONI data and classifies El Niño/La Niña years (required before step 8)
 3. table_03_correlations_2020.py → Table 3
 4. table_04_correlations_delta.py → Table 4
 5. table_05_net_change_regression.py → Table 5 (single merged model: 5 LC-class predictors plus two boundary-sensitivity covariates; requires ../data/boundary_covariates_ghsl_compactness.csv, produced by GEE/03_boundary_covariates_ghsl_compactness.js)
@@ -29,9 +29,7 @@ statsmodels is already listed in requirements.txt.
 Table 5 (table_05_net_change_regression.py) runs a single regression with 7 predictors:
 the 5 LC-class net-change variables plus two boundary-sensitivity covariates (area ratio,
 perimeter-area ratio) computed from GHS-SMOD via GEE/03_boundary_covariates_ghsl_compactness.js.
-Baku City is excluded from this model — see that script's header comments for why. A
-handful of additional cities are excluded because they lack a usable area-ratio value
-(GHSL Urban Centre detection failed for these); the table's reported n reflects this.
+Baku City is excluded from this model — see that script's header comments for why. One city (Baku) is excluded due to a boundary data-quality issue, reducing the sample to 73 cities; three additional cities (Brasília, Hobart, National Capital District) lack a usable area-ratio value and are also excluded, giving a final sample of 70. The table's reported n reflects this.
 
 ## Setup
 pip install -r requirements.txt
