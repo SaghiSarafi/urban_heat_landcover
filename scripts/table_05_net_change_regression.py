@@ -10,7 +10,7 @@ boundary-sensitivity covariates, all entered into ONE model together:
     by the square root of area, so it is scale-independent -- see script
     comments in 03_boundary_covariates_ghsl_compactness.js for why raw
     perimeter/area is not used).
-
+    
 
 Outputs: table_05_net_change_regression.csv
 Data required: city_year_lst_lc.csv, boundary_covariates_ghsl_compactness.csv
