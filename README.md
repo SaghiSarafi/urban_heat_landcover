@@ -295,7 +295,7 @@ OLS multiple regression of city-level LST change (ΔLST, ΔLSTMax, ΔLSTMax10) o
 **Inputs:** `data/city_year_lst_lc.csv`, `data/boundary_covariates_ghsl_compactness.csv`
 **Outputs:** `outputs/tables/table_05_net_change_regression.csv`
 **Model:** `statsmodels` OLS with intercept; 5 LC predictors + 2 boundary covariates entered simultaneously (n = 70)
-**Key result:** R² ≈ 0.227; impervious (β = +0.1884 K/%, p = 0.0096) and cropland loss (β = −0.2072 K/%, p = 0.0398) are significant predictors; neither boundary covariate is significant (all p > 0.14). Baku City and 8 additional cities lacking a usable area-ratio value are excluded — see `data/README_data.md`.
+**Key result:** R² ≈ 0.227; impervious (β = +0.1884 K/%, p = 0.0096) and cropland loss (β = −0.2072 K/%, p = 0.0398) are significant predictors; neither boundary covariate is significant (all p > 0.14). Baku City and three additional cities (Brasília, Hobart, National Capital District) lacking a usable area-ratio value are excluded — see `data/README_data.md`.
 
 ---
 
@@ -310,7 +310,7 @@ Full **Level 2** transition analysis pipeline:
 - `outputs/tables/table_06_direct_top10.csv`
 - `outputs/tables/table_06_direct_thermal_all_metrics.csv`
 
-**Key result:** Water loss drives the strongest warming (wat→bare = +4.93 K); all →imp conversions produce +2.9–4.2 K warming; extreme heat metrics are ≈1.6× larger for water‑loss transitions.
+**Key result:** Water loss shows the strongest association with warming (wat→bare = +4.93 K); all →imp conversions produce +2.9–4.2 K warming; extreme heat metrics are ≈1.6× larger for water‑loss transitions.
 
 ---
 
