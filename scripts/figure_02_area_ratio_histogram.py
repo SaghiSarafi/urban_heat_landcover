@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Figure X: Histogram of the area-ratio boundary covariate (city administrative
+Figure 2: Histogram of the area-ratio boundary covariate (city administrative
 boundary land area divided by its GHS-SMOD Urban Centre extent) across the
 study sample. Included in the Data section to directly show readers how much
 administrative boundaries vary in how well they represent each city's real
@@ -13,7 +13,7 @@ than the true urban extent (the boundary undersamples the real city); values
 above 1.0 mean the boundary is larger (the boundary oversamples, including
 substantial non-urban land).
 
-Outputs: figure_area_ratio_histogram.png
+Outputs: figure_02_area_ratio_histogram.png
 Data required: boundary_covariates_ghsl_compactness.csv
 """
 
@@ -66,7 +66,7 @@ ax.legend(fontsize=7.5, loc='upper right')
 ax.grid(True, alpha=0.3, linestyle='--')
 
 plt.tight_layout()
-plt.savefig("../outputs/figures/figure_area_ratio_histogram.png",
+plt.savefig("../outputs/figures/figure_02_area_ratio_histogram.png",
             dpi=600, bbox_inches='tight')
 plt.show()
 
