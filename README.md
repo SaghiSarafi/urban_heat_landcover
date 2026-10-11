@@ -14,7 +14,7 @@
 
 ## Overview
 
-This repository contains all data, code, and supplementary materials for the study analyzing how **land-cover (LC) change mediates Urban Heat Island (UHI) dynamics** across **100 major global cities** from **2000 to 2020**, using Google Earth Engine (GEE) with Landsat-derived Land Surface Temperature (LST) and the GLAD land-cover dataset.
+This repository contains all data, code, and supplementary materials for the study analyzing how **land-cover (LC) change mediates Urban Heat Island (UHI) dynamics** across **100 major global cities** from **2000 to 2020**, using Google Earth Engine (GEE) with Landsat-derived Land Surface Temperature (LST) and the GLAD land-cover dataset. **Published:** *Theoretical and Applied Climatology* (2026) 157:691, open access (CC BY 4.0). https://doi.org/10.1007/s00704-026-06604-1
 
 The study introduces a **hierarchical three‑level analytical framework**:
 
@@ -354,16 +354,18 @@ statsmodels>=0.14
 
 If you use this code or data, please cite:
 
-> Sarafi, S., Lippitt, C. D., & Paulus, G. (2026). Land-cover Change and Urban Heat in a Warming Climate: A Global Satellite Perspective. *[Journal Name]*. https://doi.org/XXXX
+> Sarafi, S., Lippitt, C. D., & Paulus, G. (2026). Land-cover change and urban heat in a warming climate: a global satellite perspective. *Theoretical and Applied Climatology*, 157, 691. https://doi.org/10.1007/s00704-026-06604-1
 
 BibTeX:
 ```bibtex
 @article{sarafi2026,
   author  = {Sarafi, Saghi and Lippitt, Christopher D. and Paulus, Gernot},
-  title   = {Land-cover Change and Urban Heat in a Warming Climate: A Global Satellite Perspective},
-  journal = {[Journal Name]},
+  title   = {Land-cover change and urban heat in a warming climate: a global satellite perspective},
+  journal = {Theoretical and Applied Climatology},
+  volume  = {157},
+  pages   = {691},
   year    = {2026},
-  doi     = {XXXX}
+  doi     = {10.1007/s00704-026-06604-1}
 }
 ```
 
@@ -377,7 +379,9 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 
 ## Acknowledgments
 
-This research was supported by the **Austrian Marshall Plan Foundation**. The majority of this work was conducted at the Department of Geography and Environmental Studies, University of New Mexico (USA), whose resources and research environment were instrumental to the completion of this study during the author's tenure as a Marshall Plan Fellow. The author also acknowledges the Department of Engineering and IT at Carinthia University of Applied Sciences (Austria) for their institutional affiliation and support.
+This research was supported by the **Austrian Marshall Plan Foundation**. This work was also supported by the UNM Community Health Allied Network for Geospatial and Environmental Science (CHANGES) Center, funded by the National Institutes of Health, National Institute of Nursing Research, grant number 1P20NR021824-0.
+
+The majority of this work was conducted at the Department of Geography and Environmental Studies, University of New Mexico (USA), whose resources and research environment were instrumental to the completion of this study during the author's tenure as a Marshall Plan Fellow. The author also acknowledges the Department of Engineering and IT at Carinthia University of Applied Sciences (Austria) for their institutional affiliation and support.
 
 ---
 
